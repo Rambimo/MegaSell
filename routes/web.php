@@ -32,4 +32,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/drink', DrinkController::class);
 
     Route::resource('/smartphone', SmartphoneController::class);
+    Route::resource('/laptop', LaptopController::class);
+
 });
