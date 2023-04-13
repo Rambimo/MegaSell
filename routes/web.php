@@ -30,4 +30,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/food', FoodController::class);
     Route::resource('/drink', DrinkController::class);
+
+    Route::resource('/smartphone', SmartphoneController::class);
 });
