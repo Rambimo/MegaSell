@@ -40,7 +40,6 @@
         <form method="POST" action="{{ $url_form }}">
           @csrf
           {!! (isset($smp))? method_field('PUT') : '' !!}
-
           <div class="form-group">
             <label>Merk</label>
             <input class="form-control @error('merk') is-invalid @enderror" value="{{ isset($smp)? $smp->merk : old('merk') }}" name="merk" type="text" />
@@ -92,7 +91,7 @@
           </div>
           <div class="form-group">
             <a href="{{ url('smartphone')}}" class="btn btn-sm btn-primary">Batal</a>
-            <button class="btn btn-sm btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
           </div>
         </form>
       </div>

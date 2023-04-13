@@ -29,7 +29,7 @@ class LaptopController extends Controller
             'display' => 'required|string|max:50',
             'ram' => 'required|string|max:50',
             'internal' => 'required|string|max:50',
-            'baterry' => 'required|string|max:20',
+            'battery' => 'required|string|max:20',
             'harga' => 'required|string|max:25'
         ]);
 
@@ -61,7 +61,7 @@ class LaptopController extends Controller
             'display' => 'required|string|max:50',
             'ram' => 'required|string|max:50',
             'internal' => 'required|string|max:50',
-            'baterry' => 'required|string|max:20',
+            'battery' => 'required|string|max:20',
             'harga' => 'required|string|max:25'
         ]);
 

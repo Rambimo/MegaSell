@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\SmartphoneController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Models\Login;
 use Illuminate\Routing\Route as RoutingRoute;

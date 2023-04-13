@@ -41,6 +41,7 @@
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
+              <th>No</th>
               <th>Merk</th>
               <th>Seri</th>
               <th>Processor</th>
@@ -49,6 +50,7 @@
               <th>Internal</th>
               <th>Battery</th>
               <th>Harga</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -76,7 +78,7 @@
               @endforeach
             @else
               <tr>
-                <td colspan="6" class="text-center">Data tidak ada</td>
+                <td colspan="9" class="text-center">Data tidak ada</td>
               </tr>
             @endif
           </tbody>

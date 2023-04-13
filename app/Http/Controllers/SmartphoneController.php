@@ -16,7 +16,7 @@ class SmartphoneController extends Controller
 
     public function create()
     {
-        return view('smartphone.create_smartphone')
+        return view('Smartphone.Create_smartphone')
                 ->with('url_form', url('/smartphone'));
     }
 
@@ -28,7 +28,7 @@ class SmartphoneController extends Controller
             'processor' => 'required|string|max:50',
             'display' => 'required|string|max:50',
             'kamera' => 'required|string|max:50',
-            'baterry' => 'required|string|max:20',
+            'battery' => 'required|string|max:20',
             'harga' => 'required|string|max:25'
         ]);
 
@@ -59,7 +59,7 @@ class SmartphoneController extends Controller
             'processor' => 'required|string|max:50',
             'display' => 'required|string|max:50',
             'kamera' => 'required|string|max:50',
-            'baterry' => 'required|string|max:20',
+            'battery' => 'required|string|max:20',
             'harga' => 'required|string|max:25'
         ]);
 

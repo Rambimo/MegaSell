@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-lg-6 col-4">
       <!-- small box -->
-      <div class="small-box bg-info">
+      <div class="small-box bg-danger">
         <div class="inner">
           <h3>10</h3>
           <p>Food</p>
@@ -35,20 +35,6 @@
           <i class="fas fa-hamburger"></i>
         </div>
         <a href="{{ url('/') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-      </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-6 col-4">
-      <!-- small box -->
-      <div class="small-box bg-info">
-        <div class="inner">
-          <h3>69</h3>
-          <p>Drinks</p>
-        </div>
-        <div class="icon">
-          <i class="fas fa-cocktail"></i>
-        </div>
-        <a href="{{ url('/drink') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
       </div>
     </div>
     <!-- ./col -->
