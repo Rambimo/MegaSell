@@ -7,11 +7,25 @@ use Illuminate\Http\Request;
 
 class LaptopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $smp = LaptopModel::all();
+
+        if ($request->has('search')) {
+            $lpt = LaptopModel::where('merk', 'like', '%' . $request->search . '%')
+                ->orWhere('seri', 'like', '%' . $request->search . '%')
+                ->orWhere('display', 'like', '%' . $request->search . '%')
+                ->orWhere('ram', 'like', '%' . $request->search . '%')
+                ->orWhere('internal', 'like', '%' . $request->search . '%')
+                ->orWhere('battery', 'like', '%' . $request->search . '%')
+                ->orWhere('harga', 'like', '%' . $request->search . '%')
+                ->paginate(3);
+            return view('laptop.laptop')
+                ->with('lpt', $lpt);
+        }
+
+        $lpt = LaptopModel::paginate(1);
         return view('laptop.laptop')
-                ->with('smp', $smp);
+        ->with('lpt', $lpt);
     }
 
     public function create()

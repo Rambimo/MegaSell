@@ -38,6 +38,14 @@
       </div>
       <div class="card-body">
         <a href="{{url('laptop/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+        <form action="{{url('laptop')}}" method="get">
+          <div class="input-group mb-3 w-25">
+              <input type="text" name="search" class="form-control" placeholder="Search"
+                     value="{{request()->search}}">
+              <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">Search</button>
+              </div>
+          </div>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -54,8 +62,8 @@
             </tr>
           </thead>
           <tbody>
-            @if($smp->count() > 0)
-              @foreach ($smp as $i => $m)
+            @if($lpt->count() > 0)
+              @foreach ($lpt as $i => $m)
                   <tr>
                     <td>{{++$i}}</td>
                     <td>{{$m->merk}}</td>
@@ -83,6 +91,7 @@
             @endif
           </tbody>
         </table>
+        {{ $lpt->links() }}
       </div>
       <!-- /.card-body -->
       <div class="card-footer">

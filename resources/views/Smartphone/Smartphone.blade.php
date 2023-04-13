@@ -38,6 +38,15 @@
       </div>
       <div class="card-body">
         <a href="{{url('smartphone/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+        <form action="{{url('smartphone')}}" method="get">
+          <div class="input-group mb-3 w-25">
+              <input type="text" name="search" class="form-control" placeholder="Search"
+                     value="{{request()->search}}">
+              <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">Search</button>
+              </div>
+          </div>
+        </form>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -81,6 +90,7 @@
             @endif
           </tbody>
         </table>
+        {{ $smp->links() }}
       </div>
       <!-- /.card-body -->
       <div class="card-footer">

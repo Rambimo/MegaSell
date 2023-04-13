@@ -7,11 +7,24 @@ use Illuminate\Http\Request;
 
 class SmartphoneController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $smp = SmartphoneModel::all();
+        if ($request->has('search')) {
+            $data = SmartphoneModel::where('merk', 'like', '%' . $request->search . '%')
+                ->orWhere('seri', 'like', '%' . $request->search . '%')
+                ->orWhere('display', 'like', '%' . $request->search . '%')
+                ->orWhere('kamera', 'like', '%' . $request->search . '%')
+                ->orWhere('battery', 'like', '%' . $request->search . '%')
+                ->orWhere('harga', 'like', '%' . $request->search . '%')
+                ->paginate(3);
+            return view('Smartphone.Smartphone')
+                ->with('smp', $data);
+        }
+
+        $smp = SmartphoneModel::paginate(1);
         return view('smartphone.smartphone')
-                ->with('smp', $smp);
+        ->with('smp', $smp);
+        
     }
 
     public function create()

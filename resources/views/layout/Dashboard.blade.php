@@ -28,13 +28,24 @@
       <!-- small box -->
       <div class="small-box bg-danger">
         <div class="inner">
-          <h3>10</h3>
-          <p>Food</p>
+          <h3>Fergie Fatah Ardiansyah</h3>
+          <p>08</p>
         </div>
         <div class="icon">
-          <i class="fas fa-hamburger"></i>
+          <i class="fas fa-user"></i>
         </div>
-        <a href="{{ url('/') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-6 col-4">
+      <!-- small box -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3>Rambimo Regeng Pangestu</h3>
+          <p>19</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-user"></i>
+        </div>
       </div>
     </div>
     <!-- ./col -->
