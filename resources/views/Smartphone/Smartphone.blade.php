@@ -78,7 +78,7 @@
                       <form method="POST" action="{{ url('/smartphone/'.$m->id)}}" class="d-inline pl-2">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                        <button type="submit" onclick="return confirm('Apakah ingin menghapus?')" class="btn btn-sm btn-danger">Hapus</button>
                       </form>
                     </td>
                   </tr>

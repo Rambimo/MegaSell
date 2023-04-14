@@ -19,4 +19,5 @@ class LaptopModel extends Model
         'battery',
         'harga'
     ];
+
 }

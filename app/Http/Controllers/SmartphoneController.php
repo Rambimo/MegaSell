@@ -9,23 +9,28 @@ class SmartphoneController extends Controller
 {
     public function index(Request $request)
     {
+        $perPage = 1;
+
         if ($request->has('search')) {
-            $data = SmartphoneModel::where('merk', 'like', '%' . $request->search . '%')
-                ->orWhere('seri', 'like', '%' . $request->search . '%')
-                ->orWhere('display', 'like', '%' . $request->search . '%')
-                ->orWhere('kamera', 'like', '%' . $request->search . '%')
-                ->orWhere('battery', 'like', '%' . $request->search . '%')
-                ->orWhere('harga', 'like', '%' . $request->search . '%')
-                ->paginate(3);
-            return view('Smartphone.Smartphone')
-                ->with('smp', $data);
+            $searchQuery = $request->search;
+            $smp = SmartphoneModel::where('merk', 'like', '%' . $searchQuery . '%')
+                ->orWhere('seri', 'like', '%' . $searchQuery . '%')
+                ->orWhere('display', 'like', '%' . $searchQuery . '%')
+                ->orWhere('kamera', 'like', '%' . $searchQuery . '%')
+                ->orWhere('battery', 'like', '%' . $searchQuery . '%')
+                ->orWhere('harga', 'like', '%' . $searchQuery . '%')
+                ->paginate($perPage)
+                ->appends(['search' => $searchQuery]);
+            return view('smartphone.smartphone')
+                ->with('smp', $smp)
+                ->with('searchQuery', $searchQuery);
         }
 
-        $smp = SmartphoneModel::paginate(1);
+        $smp = SmartphoneModel::paginate($perPage);
         return view('smartphone.smartphone')
-        ->with('smp', $smp);
-        
+            ->with('smp', $smp);
     }
+
 
     public function create()
     {

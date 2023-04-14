@@ -5,28 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\LaptopModel;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class LaptopController extends Controller
 {
     public function index(Request $request)
     {
+        $perPage = 1;
 
         if ($request->has('search')) {
-            $lpt = LaptopModel::where('merk', 'like', '%' . $request->search . '%')
-                ->orWhere('seri', 'like', '%' . $request->search . '%')
-                ->orWhere('display', 'like', '%' . $request->search . '%')
-                ->orWhere('ram', 'like', '%' . $request->search . '%')
-                ->orWhere('internal', 'like', '%' . $request->search . '%')
-                ->orWhere('battery', 'like', '%' . $request->search . '%')
-                ->orWhere('harga', 'like', '%' . $request->search . '%')
-                ->paginate(3);
+            $searchQuery = $request->search;
+            $lpt = LaptopModel::where('merk', 'like', '%' . $searchQuery . '%')
+                ->orWhere('seri', 'like', '%' . $searchQuery . '%')
+                ->orWhere('display', 'like', '%' . $searchQuery . '%')
+                ->orWhere('ram', 'like', '%' . $searchQuery . '%')
+                ->orWhere('internal', 'like', '%' . $searchQuery . '%')
+                ->orWhere('battery', 'like', '%' . $searchQuery . '%')
+                ->orWhere('harga', 'like', '%' . $searchQuery . '%')
+                ->paginate($perPage)
+                ->appends(['search' => $searchQuery]);
             return view('laptop.laptop')
-                ->with('lpt', $lpt);
+                ->with('lpt', $lpt)
+                ->with('searchQuery', $searchQuery);
         }
 
-        $lpt = LaptopModel::paginate(1);
+        $lpt = LaptopModel::paginate($perPage);
         return view('laptop.laptop')
-        ->with('lpt', $lpt);
+            ->with('lpt', $lpt);
     }
+
 
     public function create()
     {
